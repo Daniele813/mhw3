@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <title>Netflix Clone</title>
+    <link rel="stylesheet" href="mhw2.css">
+    <script src="mhw2.js" defer></script>
+   
+</head>
+<body>
+ <!-- header normale  -->
+
+    <header class="header">
+        <div class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 1024 276.742"><path d="M140.803 258.904c-15.404 2.705-31.079 3.516-47.294 5.676l-49.458-144.856v151.073c-15.404 1.621-29.457 3.783-44.051 5.945v-276.742h41.08l56.212 157.021v-157.021h43.511v258.904zm85.131-157.558c16.757 0 42.431-.811 57.835-.811v43.24c-19.189 0-41.619 0-57.835.811v64.322c25.405-1.621 50.809-3.785 76.482-4.596v41.617l-119.724 9.461v-255.39h119.724v43.241h-76.482v58.105zm237.284-58.104h-44.862v198.908c-14.594 0-29.188 0-43.239.539v-199.447h-44.862v-43.242h132.965l-.002 43.242zm70.266 55.132h59.187v43.24h-59.187v98.104h-42.433v-239.718h120.808v43.241h-78.375v55.133zm148.641 103.507c24.594.539 49.456 2.434 73.51 3.783v42.701c-38.646-2.434-77.293-4.863-116.75-5.676v-242.689h43.24v201.881zm109.994 49.457c13.783.812 28.377 1.623 42.43 3.242v-254.58h-42.43v251.338zm231.881-251.338l-54.863 131.615 54.863 145.127c-16.217-2.162-32.432-5.135-48.648-7.838l-31.078-79.994-31.617 73.51c-15.678-2.705-30.812-3.516-46.484-5.678l55.672-126.75-50.269-129.992h46.482l28.377 72.699 30.27-72.699h47.295z" fill="#d81f26"/></svg>
+        </div>
+        <nav class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#series">Giochi</a>
+            <a href="#series">Serie tv</a>
+            <a href="#film">Film</a>
+            <a href="#Nuovi">Nuovi e popolari</a>
+            <a href="#Lamialista">La mia lista</a>
+            <a href="#">Sfoglia per lista</a>
+        </nav>
+        <div class="search-bar">
+            <div class="search-container">
+                <!-- Bottone con l'icona SVG -->
+                <svg class="icon" id="searchIcon" viewBox="0 0 24 24" onclick="toggleSearch()">
+                  <path d="M21 21l-4.35-4.35" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="10" cy="10" r="7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              
+                <!-- Barra di ricerca che è inizialmente nascosta -->
+                <input type="text" id="searchBar" placeholder="Cerca titoli,..." />
+              </div>
+
+              
+          <div class="dropdown-campanella">
+            <svg id="dropdownToggle" class="icon bell-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="white">
+              <path d="M12 24c1.3 0 2.4-1 2.5-2.3h-5c.1 1.3 1.2 2.3 2.5 2.3zm6.3-6.8v-5.2c0-3.2-2-5.9-4.9-6.7v-.5c0-.8-.7-1.5-1.5-1.5S10.5 4 10.5 4.8v.5c-2.9.8-4.9 3.5-4.9 6.7v5.2L4 19v1h16v-1l-1.7-1.8z"/>
+            </svg>
+
+            <!-- Badge notifica -->
+            <span class="notification-badge"></span>
+          
+            <div class="dropdown-content" id="dropdownMenu">
+              <ul>
+                <li>✅ Nuova serie disponibile: *Dark* stagione 4</li>
+                <li>📌 Continua a guardare: *Breaking Bad*</li>
+                <li>🆕 È uscito un nuovo trailer di *Stranger Things*</li>
+                <li>🔥 Contenuti popolari in Italia</li>
+              </ul>
+            </div>
+          </div>
+          
+          
+        </div>
+        <div class="profile-dropdown">
+            <div class="profile-icon">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2hJ3Bvnm4A3OBIqFrL7xeBkT34voYn7kZUA&s" alt="Profilo">
+                <span class="arrow"></span>
+            </div>
+            <div class="dropdown-content">
+                <ul class="profiles">
+                    <li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNOP5XdhQDPol3L-uliUvB_e1Uu7YjgG5ZDQ&s" alt="Profilo 1"> Profilo 1</li>
+                    <li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoIr10RNzvlfMaKiniBCOkUXxvUS7RCjskCw&s" alt="Profilo 2"> Profilo 2</li>
+                    <li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUu3zqTzAlrTkvuNDIRy_IPou1d8Hd0o_k0A&s" alt="Profilo 3"> Profilo 3</li>
+                    <li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMesF8iS8e2PSLoS3S55DsZhCfN1ZH6swayg&s" alt="Profilo 4"> Profilo 4</li>
+                </ul>
+                <hr>
+                <ul class="options">
+                    <li>Gestisci profili</li>
+                    <li>Account</li>
+                    <li>Centro assistenza</li>
+                    <li class="logout">Esci</li>
+                </ul>
+            </div>
+        </div>        
+    </header>
+
+    <!-- Menu mobile (visibile solo su telefono) -->
+
+<div class="mobile-header">
+    <span class="logo">Netflix</span>
+    <label for="menu-toggle" class="menu-toggle-label">▼</label>
+    <input type="checkbox" id="menu-toggle">
+    <div class="dropdown-content">
+        <a href="#home">Home</a>
+        <a href="#series">Serie TV</a>
+        <a href="#series">Giochi</a>
+        <a href="#film">Film</a>
+        <a href="#Nuovi">Nuovi e popolari</a>
+        <a href="#Lamialista">La mia lista</a>
+        <a href="#">Sfoglia per lista</a>
+    </div>
+    <div class="profile-dropdown">
+        <div class="profile-icon">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2hJ3Bvnm4A3OBIqFrL7xeBkT34voYn7kZUA&s" alt="Profilo">
+            <span class="arrow"></span>
+        </div>
+        <div class="dropdown-content">
+            <ul class="profiles">
+                <li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNOP5XdhQDPol3L-uliUvB_e1Uu7YjgG5ZDQ&s" alt="Profilo 1"> Profilo 1</li>
+                <li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoIr10RNzvlfMaKiniBCOkUXxvUS7RCjskCw&s" alt="Profilo 2"> Profilo 2</li>
+                <li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUu3zqTzAlrTkvuNDIRy_IPou1d8Hd0o_k0A&s" alt="Profilo 3"> Profilo 3</li>
+                <li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMesF8iS8e2PSLoS3S55DsZhCfN1ZH6swayg&s" alt="Profilo 4"> Profilo 4</li>
+            </ul>
+            <hr>
+            <ul class="options">
+                <li>Gestisci profili</li>
+                <li>Account</li>
+                <li>Centro assistenza</li>
+                <li class="logout" onclick="window.location.href='login.html'">Esci</li>
+            </ul>
+        </div>
+    </div>     
+</div>
+    
+        <!-- menu hero  -->
+    <section class="hero">
+        <video id="heroVideo" width="100%" height="100%" autoplay muted loop playsinline></video>
+        <source src="video1.mp4" type="video1/mp4" />
+        <div class="hero-content">
+            <h1>Film, serie TV e tanto altro. Senza limiti.</h1>
+            <p>Guarda ciò che vuoi ovunque. Disdici quando vuoi.
+                Gli scagnozzi giallissimi di "Cattivissimo me" sono al centro di questo prequel, 
+                in cui raccontano a modo loro perché amano servire i cattivi.
+            </p>
+        <div class="container">
+            <button class="start" onclick=""><img src="https://img.icons8.com/material/24/sort-right--v1.png" alt="sort-right--v1"/>Riproduci</button>
+            <button class="info" onclick="">&reg; Altre info</button>
+        </div>
+    </div>
+    </section>
+    <section  class="movies">
+        <h2>Scelti per te Oggi</h2>
+        <div class="movie-wrapper">
+        <div class="movie-container">
+            <div class="movie-grid">
+                <div class="movie" data-img="https://m.media-amazon.com/images/I/81p+xe8cbnL._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Inception"></div>
+                <div class="movie" data-img="https://m.media-amazon.com/images/I/91kFYg4fX3L._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Interstellar"></div>
+                <div class="movie" data-img="https://m.media-amazon.com/images/I/71c05lTE03L._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Pulp Fiction"></div>
+                <div class="movie" data-img="https://m.media-amazon.com/images/I/51EG732BV3L._AC_.jpg"       data-video="Inception.mp4" data-title="The Matrix"></div>
+                <div class="movie" data-img="https://m.media-amazon.com/images/I/71c05lTE03L._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Pulp Fiction"></div>
+                <div class="movie" data-img="https://m.media-amazon.com/images/I/81p+xe8cbnL._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Inception"></div>
+                <div class="movie" data-img="https://m.media-amazon.com/images/I/81ExhpBEbHL._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Avengers: Endgame"></div>
+                <div class="movie" data-img="https://m.media-amazon.com/images/I/51EG732BV3L._AC_.jpg"       data-video="Inception.mp4" data-title="The Matrix"></div>
+                <div class="movie" data-img="https://m.media-amazon.com/images/I/81ExhpBEbHL._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Avengers: Endgame"></div>
+                <div class="movie" data-img="https://m.media-amazon.com/images/I/91kFYg4fX3L._AC_SY679_.jpg"   alt="Interstellar"></div>
+            </div>
+        </div>
+    </div>
+        <h2>Serie Tv</h2>
+        <section id="series">
+        <div class="movie-container">
+            <div class="movie-container">
+                <div class="movie-grid">
+                    <div class="movie"data-img="https://m.media-amazon.com/images/I/81ExhpBEbHL._AC_SY679_.jpg"data-video="Inception.mp4" data-title="Avengers: Endgame"></div>
+                    <div class="movie"data-img="https://m.media-amazon.com/images/I/71c05lTE03L._AC_SY679_.jpg"data-video="Inception.mp4" data-title="Pulp Fiction"></div>
+                    <div class="movie"data-img="https://m.media-amazon.com/images/I/91kFYg4fX3L._AC_SY679_.jpg"data-video="Inception.mp4" data-title="Interstellar"></div>
+                    <div class="movie"data-img="https://m.media-amazon.com/images/I/51EG732BV3L._AC_.jpg"      data-video="Inception.mp4" data-title="The Matrix"></div>
+                    <div class="movie"data-img="https://m.media-amazon.com/images/I/81p+xe8cbnL._AC_SY679_.jpg"data-video="Inception.mp4" data-title="Inception"></div>
+                    <div class="movie"data-img="https://m.media-amazon.com/images/I/81ExhpBEbHL._AC_SY679_.jpg"data-video="Inception.mp4" data-title="Avengers: Endgame"></div>
+                    <div class="movie"data-img="https://m.media-amazon.com/images/I/91kFYg4fX3L._AC_SY679_.jpg"data-video="Inception.mp4" data-title="Interstellar"></div>
+                    <div class="movie"data-img="https://m.media-amazon.com/images/I/81p+xe8cbnL._AC_SY679_.jpg"data-video="Inception.mp4" data-title="Inception"></div>
+                    <div class="movie"data-img="https://m.media-amazon.com/images/I/51EG732BV3L._AC_.jpg"      data-video="Inception.mp4" data-title="The Matrix"></div>
+                </div>
+            </div>  
+        </div>
+        </section>
+        <h2>Film</h2>
+        <div class="movie-container">
+            <div class="movie-grid">
+                <div class="movie"data-img="https://m.media-amazon.com/images/I/91kFYg4fX3L._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Interstellar"></div>
+                <div class="movie"data-img="https://m.media-amazon.com/images/I/81ExhpBEbHL._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Avengers: Endgame"></div>
+                <div class="movie"data-img="https://m.media-amazon.com/images/I/71c05lTE03L._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Pulp Fiction"></div>
+                <div class="movie"data-img="https://m.media-amazon.com/images/I/51EG732BV3L._AC_.jpg"       data-video="Inception.mp4" data-title="The Matrix"></div>
+                <div class="movie"data-img="https://m.media-amazon.com/images/I/81p+xe8cbnL._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Inception"></div>
+                <div class="movie"data-img="https://m.media-amazon.com/images/I/91kFYg4fX3L._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Interstellar"></div>
+                <div class="movie"data-img="https://m.media-amazon.com/images/I/81ExhpBEbHL._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Avengers: Endgame"></div>
+                <div class="movie"data-img="https://m.media-amazon.com/images/I/81p+xe8cbnL._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Inception"></div>
+                <div class="movie"data-img="https://m.media-amazon.com/images/I/51EG732BV3L._AC_.jpg"       data-video="Inception.mp4" data-title="The Matrix"></div>
+            </div>
+        </div>
+        
+        </div>
+        <h2>Nuovi e Popolari</h2>
+        <div class="movie-container">
+            <div class="movie-grid">
+                <div class="movie"data-img="https://m.media-amazon.com/images/I/51EG732BV3L._AC_.jpg"       data-video="Inception.mp4" data-title="The Matrix"></div>
+                <div class="movie"data-img="https://m.media-amazon.com/images/I/81p+xe8cbnL._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Inception"></div>
+                <div class="movie"data-img="https://m.media-amazon.com/images/I/91kFYg4fX3L._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Interstellar"></div>
+                <div class="movie"data-img="https://m.media-amazon.com/images/I/71c05lTE03L._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Pulp Fiction"></div>
+                <div class="movie"data-img="https://m.media-amazon.com/images/I/81ExhpBEbHL._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Avengers: Endgame"></div>
+                <div class="movie"data-img="https://m.media-amazon.com/images/I/91kFYg4fX3L._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Interstellar"></div>
+                <div class="movie"data-img="https://m.media-amazon.com/images/I/81p+xe8cbnL._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Inception"></div>
+                <div class="movie"data-img="https://m.media-amazon.com/images/I/81ExhpBEbHL._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Avengers: Endgame"></div>
+                <div class="movie"data-img="https://m.media-amazon.com/images/I/51EG732BV3L._AC_.jpg"       data-video="Inception.mp4" data-title="The Matrix"></div>
+            </div>
+        </div>
+        
+        </div>
+        <h2>Horror</h2>
+        <div class="movie-container">
+            <div class="movie-container">
+                <div class="movie-grid">
+                    <div class="movie"data-img="https://m.media-amazon.com/images/I/81ExhpBEbHL._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Avengers: Endgame"></div>
+                    <div class="movie"data-img="https://m.media-amazon.com/images/I/71c05lTE03L._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Pulp Fiction"></div>
+                    <div class="movie"data-img="https://m.media-amazon.com/images/I/91kFYg4fX3L._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Interstellar"></div>
+                    <div class="movie"data-img="https://m.media-amazon.com/images/I/51EG732BV3L._AC_.jpg"       data-video="Inception.mp4" data-title="The Matrix"></div>
+                    <div class="movie"data-img="https://m.media-amazon.com/images/I/81p+xe8cbnL._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Inception"></div>
+                    <div class="movie"data-img="https://m.media-amazon.com/images/I/81ExhpBEbHL._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Avengers: Endgame"></div>
+                    <div class="movie"data-img="https://m.media-amazon.com/images/I/91kFYg4fX3L._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Interstellar"></div>
+                    <div class="movie"data-img="https://m.media-amazon.com/images/I/81p+xe8cbnL._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Inception"></div>
+                    <div class="movie"data-img="https://m.media-amazon.com/images/I/51EG732BV3L._AC_.jpg"       data-video="Inception.mp4" data-title="The Matrix"></div>
+                </div>
+            </div>            
+        </div>
+        <h2>Film Romantici</h2>
+        <div class="movie-container">
+            <div class="movie-grid">
+                <div class="movie"data-img="https://m.media-amazon.com/images/I/71c05lTE03L._AC_SY679_.jpg"data-video="Inception.mp4" data-title="Pulp Fiction"></div>
+                <div class="movie"data-img="https://m.media-amazon.com/images/I/91kFYg4fX3L._AC_SY679_.jpg"data-video="Inception.mp4" data-title="Interstellar"></div>
+                <div class="movie"data-img="https://m.media-amazon.com/images/I/81ExhpBEbHL._AC_SY679_.jpg"data-video="Inception.mp4" data-title="Avengers: Endgame"></div>
+                <div class="movie"data-img="https://m.media-amazon.com/images/I/51EG732BV3L._AC_.jpg"      data-video="Inception.mp4" data-title="The Matrix"></div>
+                <div class="movie"data-img="https://m.media-amazon.com/images/I/81p+xe8cbnL._AC_SY679_.jpg"data-video="Inception.mp4" data-title="Inception"></div>
+                <div class="movie"data-img="https://m.media-amazon.com/images/I/81ExhpBEbHL._AC_SY679_.jpg"data-video="Inception.mp4" data-title="Avengers: Endgame"></div>
+                <div class="movie"data-img="https://m.media-amazon.com/images/I/91kFYg4fX3L._AC_SY679_.jpg"data-video="Inception.mp4" data-title="Interstellar"></div>
+                <div class="movie"data-img="https://m.media-amazon.com/images/I/51EG732BV3L._AC_.jpg"      data-video="Inception.mp4" data-title="The Matrix"></div>
+                <div class="movie"data-img="https://m.media-amazon.com/images/I/81p+xe8cbnL._AC_SY679_.jpg"data-video="Inception.mp4" data-title="Inception"></div>
+            </div>
+        </div>
+        </div>
+        <h2>Commedie</h2>
+        <div class="movie-container">
+            <div class="movie-grid">
+                <div class="movie" data-img="https://m.media-amazon.com/images/I/81p+xe8cbnL._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Inception"></div>
+                <div class="movie" data-img="https://m.media-amazon.com/images/I/51EG732BV3L._AC_.jpg"       data-video="Inception.mp4" data-title="The Matrix"></div>
+                <div class="movie" data-img="https://m.media-amazon.com/images/I/91kFYg4fX3L._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Interstellar"></div>
+                <div class="movie" data-img="https://m.media-amazon.com/images/I/81ExhpBEbHL._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Avengers: Endgame"></div>
+                <div class="movie" data-img="https://m.media-amazon.com/images/I/71c05lTE03L._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Pulp Fiction"></div>
+                <div class="movie" data-img="https://m.media-amazon.com/images/I/81p+xe8cbnL._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Inception"></div>
+                <div class="movie" data-img="https://m.media-amazon.com/images/I/91kFYg4fX3L._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Interstellar"></div>
+                <div class="movie" data-img="https://m.media-amazon.com/images/I/81ExhpBEbHL._AC_SY679_.jpg" data-video="Inception.mp4" data-title="Avengers: Endgame"></div>
+                <div class="movie" data-img="https://m.media-amazon.com/images/I/51EG732BV3L._AC_.jpg"       data-video="Inception.mp4" data-title="The Matrix"></div>
+            </div>
+        </div>        
+        </div>
+    </section>
+    <!-- classe social-link con rispettivi link alle pagine ufficiali -->
+    <div class="social-link">
+        <a class="social-link" href="https://www.facebook.com/Netflixitalia" target="_blank" aria-label="facebook"><svg xmlns="http://www.w3.org/2000/svg" fill="none" role="img" viewBox="0 0 24 24" width="24" height="24" data-icon="FacebookStandard" aria-hidden="true" class="svg-icon svg-icon-facebook-logo"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.987 13.1621V21.9841H10.042V13.1621H6.84198V9.51207H10.047V6.73207C10.047 3.56707 11.932 1.82007 14.815 1.82007C15.7618 1.83321 16.7063 1.91577 17.641 2.06707V5.17307H16.045C15.4954 5.10007 14.9424 5.28088 14.5421 5.66447C14.1417 6.04807 13.9375 6.59284 13.987 7.14507V9.51207H17.487L16.928 13.1621H13.987Z" fill="currentColor"></path></svg></a>
+        <a class="social-link" href="https://www.instagram.com/NetflixIT" target="_blank" aria-label="instagram"><svg xmlns="http://www.w3.org/2000/svg" fill="none" role="img" viewBox="0 0 24 24" width="24" height="24" data-icon="InstagramStandard" aria-hidden="true" class="svg-icon svg-icon-instagram-logo"><path fill-rule="evenodd" clip-rule="evenodd" d="M21.93 16.123C21.9584 17.6765 21.3789 19.1796 20.315 20.312C19.1851 21.3804 17.6797 21.9607 16.125 21.927C14.474 22.021 9.52499 22.021 7.87499 21.927C6.32126 21.9551 4.81792 21.3757 3.68499 20.312C2.61754 19.1819 2.03744 17.6772 2.06999 16.123C1.97699 14.472 1.97699 9.523 2.06999 7.873C2.03955 6.31886 2.61933 4.81466 3.68499 3.683C4.81767 2.61952 6.32162 2.04163 7.87499 2.073C9.52599 1.979 14.475 1.979 16.125 2.073C17.6789 2.04394 19.1826 2.62353 20.315 3.688C21.3825 4.81813 21.9625 6.32278 21.93 7.877C22.023 9.528 22.023 14.472 21.93 16.123ZM20.2 12C20.2 10.545 20.32 7.422 19.8 6.106C19.4572 5.23679 18.7692 4.54875 17.9 4.206C16.588 3.689 13.461 3.806 12.006 3.806C10.551 3.806 7.42799 3.685 6.11199 4.206C5.24298 4.54905 4.55505 5.23699 4.21199 6.106C3.69499 7.418 3.81199 10.545 3.81199 12C3.81199 13.455 3.69099 16.578 4.21199 17.894C4.55535 18.7628 5.24318 19.4506 6.11199 19.794C7.42399 20.311 10.552 20.194 12.006 20.194C13.46 20.194 16.584 20.315 17.9 19.794C18.769 19.451 19.4569 18.763 19.8 17.894C20.319 16.582 20.2 13.455 20.2 12ZM17.13 12C17.13 14.8312 14.8352 17.1264 12.004 17.127C9.17282 17.1276 6.8771 14.8332 6.87599 12.002C6.87489 9.17083 9.16882 6.87466 12 6.87299C13.3608 6.87034 14.6666 7.40959 15.629 8.37161C16.5914 9.33363 17.1311 10.6392 17.129 12H17.13ZM15.336 12C15.336 10.1596 13.8444 8.66756 12.004 8.667C10.1636 8.66645 8.6711 10.1576 8.66999 11.998C8.66889 13.8384 10.1596 15.3313 12 15.333C13.8406 15.3319 15.3328 13.8406 15.335 12H15.336ZM17.336 7.85901C16.6733 7.85901 16.136 7.32174 16.136 6.659C16.136 5.99626 16.6733 5.459 17.336 5.459C17.9987 5.459 18.536 5.99626 18.536 6.659C18.5379 6.97731 18.4124 7.28317 18.1876 7.50853C17.9628 7.73389 17.6573 7.86008 17.339 7.85901H17.336Z" fill="currentColor"></path></svg></a>
+        <a class="social-link" href="https://twitter.com/NetflixIT" target="_blank" aria-label="twitter"><svg xmlns="http://www.w3.org/2000/svg" fill="none" role="img" viewBox="0 0 24 24" width="24" height="24" data-icon="TwitterStandard" aria-hidden="true" class="svg-icon svg-icon-twitter-logo"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.768 8.207C20.7914 11.5932 19.4565 14.8475 17.062 17.242C14.6675 19.6365 11.4132 20.9714 8.027 20.948C5.58923 20.9544 3.20152 20.2564 1.151 18.938C1.50998 18.9771 1.87091 18.9955 2.232 18.993C4.24768 18.9984 6.20639 18.3245 7.792 17.08C5.87438 17.0472 4.18971 15.799 3.6 13.974C3.87982 14.0187 4.16264 14.0421 4.446 14.044C4.84354 14.0428 5.23935 13.9914 5.624 13.891C3.53637 13.4667 2.0367 11.6303 2.038 9.5V9.441C2.65835 9.78765 3.3519 9.98262 4.062 10.01C2.08979 8.69332 1.48225 6.06954 2.675 4.02C4.94972 6.82016 8.30596 8.52336 11.909 8.706C11.8375 8.369 11.8009 8.02551 11.8 7.681C11.8014 5.84295 12.9248 4.19204 14.6341 3.51625C16.3434 2.84047 18.2921 3.2768 19.55 4.617C20.5522 4.42342 21.5131 4.05731 22.39 3.535C22.0556 4.56894 21.3555 5.44538 20.421 6C21.3102 5.89965 22.1795 5.66709 23 5.31C22.3866 6.20228 21.6273 6.98489 20.754 7.625C20.768 7.82 20.768 8.014 20.768 8.207Z" fill="currentColor"></path></svg></a>
+        <a class="social-link" href="https://www.youtube.com/channel/UCi_T2R1AzOCun4-PI4Or2ng" target="_blank" aria-label="youtube"><svg xmlns="http://www.w3.org/2000/svg" fill="none" role="img" viewBox="0 0 24 24" width="24" height="24" data-icon="YoutubeStandard" aria-hidden="true" class="svg-icon svg-icon-youtube-logo"><path fill-rule="evenodd" clip-rule="evenodd" d="M22.54 6.67C22.288 5.71873 21.549 4.97331 20.6 4.713C18.88 4.25 12 4.25 12 4.25C12 4.25 5.11997 4.25 3.39997 4.713C2.45094 4.97331 1.71199 5.71873 1.45997 6.67C1.14265 8.42869 0.988663 10.213 0.99997 12C0.988663 13.787 1.14265 15.5713 1.45997 17.33C1.71288 18.2825 2.45401 19.0282 3.40497 19.287C5.11997 19.75 12.005 19.75 12.005 19.75C12.005 19.75 18.885 19.75 20.6 19.287C21.549 19.0267 22.288 18.2813 22.54 17.33C22.8573 15.5713 23.0113 13.787 23 12C23.0113 10.213 22.8573 8.42869 22.54 6.67ZM9.74997 15.27V8.729L15.5 12L9.74997 15.27Z" fill="currentColor"></path></svg></a>
+    </div>
+ 
+<!-- Footer parte finale sito -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <span>Informazioni</span>
+                <span>Supporto</span>
+                <span>Privacy</span>
+            </div>
+            <div class="footer-column">
+                <span>Termini</span>
+                <span>Contattaci</span>
+                <span>FAQ</span>
+            </div>
+            <div class="footer-column">
+                <span>Blog</span>
+                <span>Lavora con noi</span>
+                <span>Stampa</span>
+            </div>
+            <div class="footer-column">
+                <span>Panini al salame</span>
+                <span>Partnership</span>
+                <span>Community</span>
+            </div>
+        </div>
+        <p> &#169; Copyryght 1986-2025 Netflix, Inc. </p>
+    </footer>
+</body>
+</html>
